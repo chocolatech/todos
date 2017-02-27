@@ -13,7 +13,7 @@ export class TodosService {
 
     constructor(private http: Http) { }
 
-    getHeroes(): Promise<Todo[]> {
+    getTodos(): Promise<Todo[]> {
         return this.http.get(this.todosUrl)
             .toPromise()
             .then(response => response.json().data as Todo[])
