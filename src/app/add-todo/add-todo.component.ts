@@ -15,8 +15,8 @@ export class AddTodoComponent implements OnInit {
   constructor(private todosService: TodosService) { }
 
   reset(): void {
-    this.newItem = { 'text': '', 'state': 'todo' };
-     this.newItemText = '';
+    this.newItem = { 'text': '', 'state': 'todo'};
+    this.newItemText = '';
   };
 
   addNewItem(): void {
