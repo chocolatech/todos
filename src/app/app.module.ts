@@ -11,11 +11,13 @@ import { InMemoryDataService } from './shared/in-memory-data.service';
 import { AppComponent } from './app.component';
 import { TodosService } from './shared/todos.service';
 import { TodoComponent } from './todo/todo.component';
+import { AddTodoComponent } from './add-todo/add-todo.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TodoComponent
+    TodoComponent,
+    AddTodoComponent
   ],
   imports: [
     BrowserModule,

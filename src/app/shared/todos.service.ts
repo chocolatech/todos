@@ -23,5 +23,8 @@ export class TodosService {
         console.error('An error occurred', error); // for demo purposes only
         return Promise.reject(error.message || error);
     }
+    addTodo(todo:Todo):any {
+        return true;
+    }
 
 }
