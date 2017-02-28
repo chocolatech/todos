@@ -1,6 +1,9 @@
 <app-add-todo [todos] = "todos">  </app-add-todo>
 <ul>
   <li *ngFor="let todo of todos">
-    {{todo.text}} <span class="badge badge-pill badge-primary">{{todo.state}}</span> 
+    <span class="todo-item">{{todo.text}}</span>
+    <span>{{todo.completeBy}}</span>
+    <span *ngIf="todo.priority" class="priority"><fa [name]="'exclamation'"></fa></span>
+    <span class="badge badge-pill badge-primary">{{todo.state}}</span> 
   </li>
 </ul>
