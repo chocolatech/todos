@@ -17,7 +17,7 @@ export class AddTodoComponent implements OnInit {
   constructor(private todosService: TodosService) { }
 
   reset(): void {
-    this.newItem = { 'text': '', 'state': 'todo', 'completeBy': null, 'priority': false };
+    this.newItem = {'id': -1, 'text': '', 'state': 'todo', 'completeBy': null, 'priority': false };
     this.newItemText = '';
     this.dueDate = null;
     this.priority = false;
@@ -28,6 +28,8 @@ export class AddTodoComponent implements OnInit {
     this.newItem.text = this.newItemText;
     this.newItem.completeBy = this.dueDate;
     this.newItem.priority = this.priority;
+    this.newItem.id = this.todos.length;
+    console.log(this.todos.length)
     this.todosService.addTodo(this.newItem)
       .then(newItem => {
         this.todos.push(newItem);

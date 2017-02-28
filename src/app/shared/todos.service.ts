@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Headers, Http } from '@angular/http';
+import { Headers, Http, Response } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
 import { Todo } from './todo.model';
@@ -24,11 +24,21 @@ export class TodosService {
     addTodo(todo: Todo): Promise<Todo> {
         return this.http
             .post(this.todosUrl, JSON.stringify(
-                { text: todo.text, state: todo.state, completeBy: todo.completeBy, completed: todo.completed, priority: todo.priority }), 
+                { id: todo.id, text: todo.text, state: todo.state, completeBy: todo.completeBy, completed: todo.completed, priority: todo.priority }), 
                 { headers: this.headers })
             .toPromise()
-            .then(res => res.json().data)
+            .then(res => {
+                return res.json().data})
             .catch(this.handleError);
+    }
+
+    update(todo:Todo, id: number): Promise<Response> {
+
+        return this.http
+            .put(this.todosUrl+'/'+id, JSON.stringify(
+                { id: todo.id, text: todo.text, state: todo.state, completeBy: todo.completeBy, completed: todo.completed, priority: todo.priority }), 
+                { headers: this.headers })
+            .toPromise();
     }
 
     private handleError(error: any): Promise<any> {
