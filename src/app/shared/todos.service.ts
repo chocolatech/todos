@@ -23,7 +23,7 @@ export class TodosService {
 
     addTodo(todo: Todo): Promise<Todo> {
         return this.http
-            .post(this.todosUrl, JSON.stringify({ text: todo.text }), { headers: this.headers })
+            .post(this.todosUrl, JSON.stringify({ text: todo.text, state: todo.state }), { headers: this.headers })
             .toPromise()
             .then(res => res.json().data)
             .catch(this.handleError);
