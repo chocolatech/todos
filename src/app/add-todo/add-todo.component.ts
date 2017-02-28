@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Todo } from '../shared/todo.model';
 import { TodosService } from '../shared/todos.service';
 
@@ -9,23 +9,27 @@ import { TodosService } from '../shared/todos.service';
   providers: [TodosService]
 })
 export class AddTodoComponent implements OnInit {
-  newItem: Todo;
-  newItemText: string;
-
+  @Input() newItem: Todo;
+  @Input() newItemText: string;
+  @Input() todos: Todo[];
   constructor(private todosService: TodosService) { }
 
-reset():void {
-  this.newItem = { 'text': '', 'state': 'todo' };
-  this.newItemText='';
-};
+  reset(): void {
+    this.newItem = { 'text': '', 'state': 'todo' };
+     this.newItemText = '';
+  };
 
-addNewItem():void {
-  this.newItem.text = this.newItemText;
-  this.todosService.addTodo(this.newItem);
-  this.reset();
-};
-ngOnInit() {
-   this.reset();
-}
+  addNewItem(): void {
+    this.newItem.text = this.newItemText;
+    this.todosService.addTodo(this.newItem)
+      .then(newItem => {
+        this.todos.push(newItem);
+        console.log(this.todos)
+      });
+    this.reset();
+  };
+  ngOnInit() {
+    this.reset();
+  }
 
 }
