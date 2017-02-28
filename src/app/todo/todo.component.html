@@ -1,6 +1,7 @@
 <app-add-todo [todos]="todos"> </app-add-todo>
-<ul>
+<ul class="todo-list">
   <li *ngFor="let todo of todos">
+    <input type="checkbox">
     <span class="todo-item">{{todo.text}}</span>
     <span *ngIf="todo.priority" class="priority"><fa [name]="'exclamation'"></fa></span>
     <span class="badge badge-default">{{todo.completeBy}}</span>

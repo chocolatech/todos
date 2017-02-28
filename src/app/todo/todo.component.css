@@ -1,3 +1,6 @@
 .priority fa{
     color: red;
 }
+.todo-list{
+    list-style: none;
+}
