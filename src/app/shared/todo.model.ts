@@ -1,5 +1,4 @@
 export class Todo {
-    id: number;
     text: string;
     state: string;
     // completeOn: Date;
