@@ -1,8 +1,8 @@
 <form class="center" (submit)="addNewItem($event)">
     <input type="text" [(ngModel)]="newItemText" name="newItemText" size="50" placeholder="What needs to be done?" autofocus>
     <label for="">Due date:</label>
-    <input type="date" name="due">
+    <input type="date" name="dueDate" [(ngModel)]="dueDate">
     <label for="">Priority</label>
-    <input type="checkbox">
+    <input type="checkbox" name="priority" [(ngModel)]="priority">
     <input class="btn btn-primary" type="submit" [disabled]="newItemText===''" value="Add">
 </form>

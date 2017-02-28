@@ -1,8 +1,8 @@
 export class Todo {
     text: string;
     state: string;
-    completeBy?: string;
-    completed?: string;
+    completeBy?: Date;
+    completed?: Date;
     priority?:boolean;
 }
 
