@@ -1,8 +1,8 @@
 export class Todo {
     text: string;
     state: string;
-    // completeOn: Date;
-    // completed: Date;
+    completeBy: string;
+    completed: string;
 }
 
 export enum State {
