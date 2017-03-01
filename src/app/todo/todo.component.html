@@ -6,9 +6,9 @@
     'done-grey': todo.completed=='onTime', 'done-red': todo.completed=='tooLate', 'done-green': todo.completed=='success'}" 
     (click)="isInProgress(todo)" class="todo-item">{{todo.text}}</span>
     <span *ngIf="todo.priority" class="priority"><fa [name]="'exclamation'"></fa></span>
-    <span class="badge badge-default">{{todo.completeBy}}</span>
-    <span [ngClass]="{'badge-info': todo.state=='todo', 'badge-primary': todo.state=='inProgress',
-    'badge-default': todo.completed=='onTime', 'badge-danger': todo.completed=='tooLate', 'badge-success': todo.completed=='success' }" 
+    <span class="badge todo-badge-date" [ngClass]="{'todo-badge-ontime': todo.state=='done'}">{{todo.completeBy}}</span>
+    <span [ngClass]="{'todo-badge-todo': todo.state=='todo', 'todo-badge-inprogress': todo.state=='inProgress',
+    'todo-badge-ontime': todo.completed=='onTime', 'todo-badge-toolate': todo.completed=='tooLate', 'todo-badge-success': todo.completed=='success' }" 
     class="badge badge-pill">{{todo.state}}</span>
   </li>
 </ul>

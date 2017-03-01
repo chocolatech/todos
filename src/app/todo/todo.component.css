@@ -8,7 +8,7 @@
     text-decoration: line-through;
 }
 .done-green {
-    color: green;
+    color: #81C784;
 }
 .done-red {
     color: red;
@@ -19,3 +19,22 @@
 .in-progress {
     font-weight: bold;
 }
+.todo-badge-success {
+    background-color: #81C784;
+}
+.todo-badge-toolate {
+    background-color: #e57373;
+}
+.todo-badge-ontime {
+    background-color: #E0E0E0;
+}
+.todo-badge-todo {
+    background-color: #FF8A65;
+}
+.todo-badge-inprogress {
+    background-color: #64B5F6;
+}
+.todo-badge-date {
+    background-color: #FFD54F;
+}
+
