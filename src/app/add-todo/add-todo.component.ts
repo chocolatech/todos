@@ -11,7 +11,7 @@ import { TodosService } from '../shared/todos.service';
 export class AddTodoComponent implements OnInit {
   @Input() newItem: Todo;
   @Input() newItemText: string;
-  @Input() dueDate: Date;
+  @Input() dueDate: string;
   @Input() priority: boolean;
   @Input() todos: Todo[];
   constructor(private todosService: TodosService) { }

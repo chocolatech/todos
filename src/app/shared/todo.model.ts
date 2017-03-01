@@ -2,7 +2,7 @@ export class Todo {
     id: number;
     text: string;
     state: string;
-    completeBy?: Date;
+    completeBy?: string;
     priority?:boolean;
 }
 
