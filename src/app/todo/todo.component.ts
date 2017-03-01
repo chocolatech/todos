@@ -36,9 +36,9 @@ export class TodoComponent implements OnInit {
   }
 
   checkDate(todo: Todo): void {
-    if (new Date(todo.completeBy).getTime() > new Date(this.date).getTime()) {
+    if (new Date(todo.completeBy).getTime() < new Date(this.date).getTime()) {
       this.stage = 'tooLate';
-    } else if (new Date(todo.completeBy).getTime() < new Date(this.date).getTime()) {
+    } else if (new Date(todo.completeBy).getTime() > new Date(this.date).getTime()) {
       this.stage = 'success';
     } else {
       this.stage = 'onTime';
