@@ -1,4 +1,4 @@
-<form class="center" (submit)="addNewItem($event)">
+<form class="todo-input" (submit)="addNewItem($event)">
     <input type="text" [(ngModel)]="newItemText" name="newItemText" size="50" placeholder="What needs to be done?" autofocus>
     <label for="">Due date:</label>
     <input type="date" name="dueDate" [(ngModel)]="dueDate">
