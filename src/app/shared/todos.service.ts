@@ -24,7 +24,7 @@ export class TodosService {
     addTodo(todo: Todo): Promise<Todo> {
         return this.http
             .post(this.todosUrl, JSON.stringify(
-                { id: todo.id, text: todo.text, state: todo.state, completeBy: todo.completeBy, completed: todo.completed, priority: todo.priority }), 
+                { id: todo.id, text: todo.text, state: todo.state, completeBy: todo.completeBy, priority: todo.priority }), 
                 { headers: this.headers })
             .toPromise()
             .then(res => {
@@ -36,7 +36,7 @@ export class TodosService {
 
         return this.http
             .put(this.todosUrl+'/'+id, JSON.stringify(
-                { id: todo.id, text: todo.text, state: todo.state, completeBy: todo.completeBy, completed: todo.completed, priority: todo.priority }), 
+                { id: todo.id, text: todo.text, state: todo.state, completeBy: todo.completeBy, priority: todo.priority }), 
                 { headers: this.headers })
             .toPromise();
     }
