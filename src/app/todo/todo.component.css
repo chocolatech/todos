@@ -11,10 +11,10 @@
     color: #81C784;
 }
 .done-red {
-    color: red;
+    color: #e57373;
 }
 .done-grey {
-    color: grey;
+    color: #E0E0E0;
 }
 .in-progress {
     font-weight: bold;
