@@ -4,3 +4,18 @@
 .todo-list{
     list-style: none;
 }
+.crossover {
+    text-decoration: line-through;
+}
+.done-green {
+    color: green;
+}
+.done-red {
+    color: red;
+}
+.done-grey {
+    color: grey;
+}
+.in-progress {
+    font-weight: bold;
+}

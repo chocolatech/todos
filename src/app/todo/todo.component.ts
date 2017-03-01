@@ -20,13 +20,15 @@ export class TodoComponent implements OnInit {
   getTodos(): void {
     this.todosService.getTodos().then(todos => this.todos = todos);
   }
-  update(todo: Todo): void {
+  isInProgress(todo: Todo): void {
     if (todo.state == 'todo') {
       todo.state = 'inProgress';
-    } else {
-      todo.state = 'done';
     }
-
     this.todosService.update(todo, todo.id);
   }
+  isDone(todo: Todo): void {
+    todo.state = 'done';
+    this.todosService.update(todo, todo.id);
+  }
+
 }

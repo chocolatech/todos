@@ -1,10 +1,11 @@
 <app-add-todo [todos]="todos"> </app-add-todo>
 <ul class="todo-list">
   <li *ngFor="let todo of todos">
-    <input type="checkbox" (click)="update(todo)">
-    <span class="todo-item">{{todo.text}}</span>
+    <input type="checkbox" (click)="isDone(todo)">
+    <span [ngClass]="{'crossover': todo.state=='done', 'in-progress': todo.state=='inProgress'}" 
+    (click)="isInProgress(todo)" class="todo-item">{{todo.text}}</span>
     <span *ngIf="todo.priority" class="priority"><fa [name]="'exclamation'"></fa></span>
     <span class="badge badge-default">{{todo.completeBy}}</span>
-    <span class="badge badge-pill badge-primary">{{todo.state}}</span>
+    <span [ngClass]="{'badge-info': todo.state=='todo', 'badge-primary': todo.state=='inProgress' }" class="badge badge-pill">{{todo.state}}</span>
   </li>
 </ul>
