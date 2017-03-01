@@ -13,7 +13,6 @@ export class TodoComponent implements OnInit {
   todos: Todo[];
   today = new Date();
   date = this.today.getFullYear() + '-' + (this.today.getMonth() + 1) + '-' + this.today.getDate();
-  stage: string;
 
   constructor(private todosService: TodosService) { }
 
@@ -37,11 +36,11 @@ export class TodoComponent implements OnInit {
 
   checkDate(todo: Todo): void {
     if (new Date(todo.completeBy).getTime() < new Date(this.date).getTime()) {
-      this.stage = 'tooLate';
+      todo.completed = 'tooLate';
     } else if (new Date(todo.completeBy).getTime() > new Date(this.date).getTime()) {
-      this.stage = 'success';
+      todo.completed = 'success';
     } else {
-      this.stage = 'onTime';
+      todo.completed = 'onTime';
     }
   }
 
