@@ -1,11 +1,12 @@
 <form class="todo-input" (submit)="addNewItem($event)" id="todo-input">
     <input type="text" [(ngModel)]="newItemText" name="newItemText" [ngClass]="{'todo-exists': todoExists}" size="50" placeholder="What needs to be done?"
         autofocus autocomplete="off">
-        <label for="">Due date:</label>
-        <input type="date" name="dueDate" [(ngModel)]="dueDate">
-        <label for="">Priority</label>
-        <input type="checkbox" name="priority" [(ngModel)]="priority">
-        <input class="btn btn-primary" type="submit" [disabled]="newItemText===''" value="Add">
+        <my-date-picker name="mydate" [options]="myDatePickerOptions" [(ngModel)]="model"></my-date-picker>
+    <label for="">Due date:</label>
+    <input type="date" name="dueDate" [(ngModel)]="dueDate">
+    <label for="">Priority</label>
+    <input type="checkbox" name="priority" [(ngModel)]="priority">
+    <input class="btn btn-primary" type="submit" [disabled]="newItemText===''" value="Add">
 </form>
 <div *ngIf="todoExists" class="alert alert-warning alert-dismissible fade show" role="alert">
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
