@@ -14,10 +14,11 @@ export class AddTodoComponent implements OnInit {
   @Input() dueDate: string;
   @Input() priority: boolean;
   @Input() todos: Todo[];
+  todoExists: boolean;
   constructor(private todosService: TodosService) { }
 
   reset(): void {
-    this.newItem = {'id': -1, 'text': '', 'state': 'todo', 'completeBy': null, 'priority': false };
+    this.newItem = { 'id': -1, 'text': '', 'state': 'todo', 'completeBy': null, 'priority': false };
     this.newItemText = '';
     this.dueDate = null;
     this.priority = false;
@@ -29,14 +30,31 @@ export class AddTodoComponent implements OnInit {
     this.newItem.completeBy = this.dueDate;
     this.newItem.priority = this.priority;
     this.newItem.id = this.todos.length;
-    console.log(this.todos.length)
-    this.todosService.addTodo(this.newItem)
-      .then(newItem => {
-        this.todos.push(newItem);
-        console.log(this.todos)
-      });
-    this.reset();
+
+    if (this.checkIfTodoExists()) {
+      this.todoExists = true;
+
+      console.log(this.todoExists);
+
+    } else {
+      this.todosService.addTodo(this.newItem)
+        .then(newItem => {
+          this.todos.push(newItem);
+          //console.log(this.todos)
+        });
+      this.reset();
+    }
+
   };
+
+  checkIfTodoExists(): boolean {
+    let mapped = this.todos.map(item => {
+      return item.text;
+    });
+
+    return mapped.includes(this.newItemText);
+  }
+
   ngOnInit() {
     this.reset();
   }

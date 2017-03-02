@@ -1,8 +1,15 @@
-<form class="todo-input" (submit)="addNewItem($event)">
-    <input type="text" [(ngModel)]="newItemText" name="newItemText" size="50" placeholder="What needs to be done?" autofocus>
-    <label for="">Due date:</label>
-    <input type="date" name="dueDate" [(ngModel)]="dueDate">
-    <label for="">Priority</label>
-    <input type="checkbox" name="priority" [(ngModel)]="priority">
-    <input class="btn btn-primary" type="submit" [disabled]="newItemText===''" value="Add">
+<form class="todo-input" (submit)="addNewItem($event)" id="todo-input">
+    <input type="text" [(ngModel)]="newItemText" name="newItemText" [ngClass]="{'todo-exists': todoExists}" size="50" placeholder="What needs to be done?"
+        autofocus>
+        <label for="">Due date:</label>
+        <input type="date" name="dueDate" [(ngModel)]="dueDate">
+        <label for="">Priority</label>
+        <input type="checkbox" name="priority" [(ngModel)]="priority">
+        <input class="btn btn-primary" type="submit" [disabled]="newItemText===''" value="Add">
 </form>
+<div *ngIf="todoExists" class="alert alert-warning alert-dismissible fade show" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+    <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+</div>

@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+html{
+    margin: 1rem;
+}
+.alert-warning.todo-exists-alert {
+    width: 35%;
+}
+input:-webkit-autofill.todo-exists {
+    background-color: red!important;
+}
