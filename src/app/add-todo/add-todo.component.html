@@ -1,6 +1,6 @@
 <form class="todo-input" (submit)="addNewItem($event)" id="todo-input">
     <input type="text" [(ngModel)]="newItemText" name="newItemText" [ngClass]="{'todo-exists': todoExists}" size="50" placeholder="What needs to be done?"
-        autofocus>
+        autofocus autocomplete="off">
         <label for="">Due date:</label>
         <input type="date" name="dueDate" [(ngModel)]="dueDate">
         <label for="">Priority</label>

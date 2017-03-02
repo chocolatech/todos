@@ -5,6 +5,6 @@ html{
 .alert-warning.todo-exists-alert {
     width: 35%;
 }
-input:-webkit-autofill.todo-exists {
+input.todo-exists {
     background-color: red!important;
 }
