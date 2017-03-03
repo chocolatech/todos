@@ -21,9 +21,6 @@ export class AddTodoComponent implements OnInit {
     dateFormat: 'yyyy.mm.dd',
   };
 
-  // Initialized to specific date
-  //model: Object = { date: { year: 2018, month: 10, day: 9 } };
-
   constructor(private todosService: TodosService) { }
 
   reset(): void {
@@ -36,12 +33,9 @@ export class AddTodoComponent implements OnInit {
 
   addNewItem(): void {
     this.newItem.text = this.newItemText;
-    this.newItem.completeBy = JSON.stringify(this.dueDate);
+    this.newItem.completeBy = JSON.stringify(this.dueDate['formatted']).replace(/['"]+/g, '');
     this.newItem.priority = this.priority;
     this.newItem.id = this.todos.length;
-
-    console.log(this.dueDate);
-
 
     if (this.checkIfTodoExists()) {
       this.todoExists = true;
