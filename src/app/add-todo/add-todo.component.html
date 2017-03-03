@@ -2,8 +2,8 @@
     <input type="text" [(ngModel)]="newItemText" name="newItemText" [ngClass]="{'todo-exists': todoExists}" size="50" placeholder="What needs to be done?"
         autofocus autocomplete="off">
         <my-date-picker name="mydate" [options]="myDatePickerOptions" [(ngModel)]="model"></my-date-picker>
-    <label for="">Due date:</label>
-    <input type="date" name="dueDate" [(ngModel)]="dueDate">
+    <!--<label for="">Due date:</label>
+    <input type="date" name="dueDate" [(ngModel)]="dueDate">-->
     <label for="">Priority</label>
     <input type="checkbox" name="priority" [(ngModel)]="priority">
     <input class="btn btn-primary" type="submit" [disabled]="newItemText===''" value="Add">
@@ -12,5 +12,5 @@
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span>
   </button>
-    <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+    <strong>You already have such todo!</strong>
 </div>

@@ -6,5 +6,9 @@ html{
     width: 35%;
 }
 input.todo-exists {
-    background-color: red!important;
+    background-color: #FFECB3;
+}
+.mydp {
+    max-width: 15%;
+    margin: -13px auto;
 }
