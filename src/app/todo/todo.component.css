@@ -1,4 +1,4 @@
-.priority fa{
+.priority {
     color: red;
 }
 .todo-list{
@@ -36,5 +36,9 @@
 }
 .todo-badge-date {
     background-color: #FFD54F;
+}
+.delete {
+    color: #64B5F6;
+    font-weight: bolder;
 }
 
