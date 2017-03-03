@@ -24,23 +24,30 @@ export class TodosService {
     addTodo(todo: Todo): Promise<Todo> {
         return this.http
             .post(this.todosUrl, JSON.stringify(
-                { id: todo.id, text: todo.text, state: todo.state, completeBy: todo.completeBy, completed:todo.completed, priority: todo.priority }), 
-                { headers: this.headers })
+                { id: todo.id, text: todo.text, state: todo.state, completeBy: todo.completeBy, completed: todo.completed, priority: todo.priority }),
+            { headers: this.headers })
             .toPromise()
             .then(res => {
-                return res.json().data})
+                return res.json().data
+            })
             .catch(this.handleError);
     }
 
-    update(todo:Todo, id: number): Promise<Response> {
+    update(todo: Todo, id: number): Promise<Response> {
 
         return this.http
-            .put(this.todosUrl+'/'+id, JSON.stringify(
-                { id: todo.id, text: todo.text, state: todo.state, completeBy: todo.completeBy, completed:todo.completed, priority: todo.priority }), 
-                { headers: this.headers })
+            .put(this.todosUrl + '/' + id, JSON.stringify(
+                { id: todo.id, text: todo.text, state: todo.state, completeBy: todo.completeBy, completed: todo.completed, priority: todo.priority }),
+            { headers: this.headers })
             .toPromise();
     }
 
+    delete(todo: Todo, id: number): Promise<void> {
+        return this.http.delete(this.todosUrl + '/' + id, { headers: this.headers })
+            .toPromise()
+            .then(() => null)
+            .catch(this.handleError);
+    }
     private handleError(error: any): Promise<any> {
         console.error('An error occurred', error); // for demo purposes only
         return Promise.reject(error.message || error);

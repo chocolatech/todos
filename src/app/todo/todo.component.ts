@@ -11,6 +11,7 @@ import { TodosService } from '../shared/todos.service';
 })
 export class TodoComponent implements OnInit {
   todos: Todo[];
+  selectedTodo: Todo;
   today = new Date();
   date = this.today.getFullYear() + '-' + (this.today.getMonth() + 1) + '-' + this.today.getDate();
 
@@ -45,5 +46,14 @@ export class TodoComponent implements OnInit {
       todo.completed = 'onTime';
     }
   }
+
+delete(todo: Todo, id: number): void {
+  this.todosService
+      .delete(todo,id)
+      .then(() => {
+        this.todos = this.todos.filter(t => t !== todo);
+        if (this.selectedTodo === todo) { this.selectedTodo = null; }
+      });
+}
 
 }

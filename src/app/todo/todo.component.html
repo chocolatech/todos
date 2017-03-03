@@ -3,12 +3,13 @@
   <li *ngFor="let todo of todos">
     <input type="checkbox" (click)="isDone(todo)">
     <span [ngClass]="{'crossover': todo.state=='done', 'in-progress': todo.state=='inProgress', 
-    'done-grey': todo.completed=='onTime', 'done-red': todo.completed=='tooLate', 'done-green': todo.completed=='success'}" 
-    (click)="isInProgress(todo)" class="todo-item">{{todo.text}}</span>
+    'done-grey': todo.completed=='onTime', 'done-red': todo.completed=='tooLate', 'done-green': todo.completed=='success'}"
+      (click)="isInProgress(todo)" class="todo-item">{{todo.text}}</span>
     <span *ngIf="todo.priority" class="priority"><fa [name]="'exclamation'"></fa></span>
     <span class="badge todo-badge-date" [ngClass]="{'todo-badge-ontime': todo.state=='done'}">{{todo.completeBy}}</span>
     <span [ngClass]="{'todo-badge-todo': todo.state=='todo', 'todo-badge-inprogress': todo.state=='inProgress',
-    'todo-badge-ontime': todo.completed=='onTime', 'todo-badge-toolate': todo.completed=='tooLate', 'todo-badge-success': todo.completed=='success' }" 
-    class="badge badge-pill">{{todo.state}}</span>
+    'todo-badge-ontime': todo.completed=='onTime', 'todo-badge-toolate': todo.completed=='tooLate', 'todo-badge-success': todo.completed=='success' }"
+      class="badge badge-pill">{{todo.state}}</span>
+    <button class="delete" (click)="delete(todo, id); $event.stopPropagation()">x</button>
   </li>
 </ul>
