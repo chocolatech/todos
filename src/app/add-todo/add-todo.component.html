@@ -1,7 +1,7 @@
 <form class="todo-input" (submit)="addNewItem($event)" id="todo-input">
     <input type="text" [(ngModel)]="newItemText" name="newItemText" [ngClass]="{'todo-exists': todoExists}" size="50" placeholder="What needs to be done?"
         autofocus autocomplete="off">
-        <my-date-picker name="mydate" [options]="myDatePickerOptions" [(ngModel)]="model"></my-date-picker>
+        <my-date-picker name="dueDate" [options]="myDatePickerOptions" [(ngModel)]="dueDate"></my-date-picker>
     <!--<label for="">Due date:</label>
     <input type="date" name="dueDate" [(ngModel)]="dueDate">-->
     <label for="">Priority</label>

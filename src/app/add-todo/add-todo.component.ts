@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import {IMyOptions} from 'mydatepicker';
 import { Todo } from '../shared/todo.model';
 import { TodosService } from '../shared/todos.service';
 
@@ -11,10 +12,18 @@ import { TodosService } from '../shared/todos.service';
 export class AddTodoComponent implements OnInit {
   @Input() newItem: Todo;
   @Input() newItemText: string;
-  @Input() dueDate: string;
+  @Input() dueDate: Object;
   @Input() priority: boolean;
   @Input() todos: Todo[];
   todoExists: boolean;
+
+  private myDatePickerOptions: IMyOptions = {
+    dateFormat: 'yyyy.mm.dd',
+  };
+
+  // Initialized to specific date
+  //model: Object = { date: { year: 2018, month: 10, day: 9 } };
+
   constructor(private todosService: TodosService) { }
 
   reset(): void {
@@ -27,9 +36,12 @@ export class AddTodoComponent implements OnInit {
 
   addNewItem(): void {
     this.newItem.text = this.newItemText;
-    this.newItem.completeBy = this.dueDate;
+    this.newItem.completeBy = JSON.stringify(this.dueDate);
     this.newItem.priority = this.priority;
     this.newItem.id = this.todos.length;
+
+    console.log(this.dueDate);
+
 
     if (this.checkIfTodoExists()) {
       this.todoExists = true;
