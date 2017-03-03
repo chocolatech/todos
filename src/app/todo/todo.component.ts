@@ -19,9 +19,11 @@ export class TodoComponent implements OnInit {
   ngOnInit() {
     this.getTodos();
   }
+
   getTodos(): void {
     this.todosService.getTodos().then(todos => this.todos = todos);
   }
+
   isInProgress(todo: Todo): void {
     if (todo.state == 'todo') {
       todo.state = 'inProgress';
@@ -43,7 +45,5 @@ export class TodoComponent implements OnInit {
       todo.completed = 'onTime';
     }
   }
-
-
 
 }
